@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Micro and Macro Data</title>
+  <meta name="description" content="Micro and Macro Data" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Micro and Macro Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Micro and Macro Data" />
+  
+  
+  
+
+<meta name="author" content="Mauritz van den Worm" />
+
+
+<meta name="date" content="2020-09-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="calendar-spreads.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Micro and Macro Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="calendar-spreads.html"><a href="calendar-spreads.html"><i class="fa fa-check"></i><b>2</b> Calendar Spreads</a><ul>
+<li class="chapter" data-level="2.1" data-path="calendar-spreads.html"><a href="calendar-spreads.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="calendar-spreads.html"><a href="calendar-spreads.html#curve-shapes"><i class="fa fa-check"></i><b>2.2</b> Curve Shapes</a></li>
+<li class="chapter" data-level="2.3" data-path="calendar-spreads.html"><a href="calendar-spreads.html#notation"><i class="fa fa-check"></i><b>2.3</b> Notation</a></li>
+<li class="chapter" data-level="2.4" data-path="calendar-spreads.html"><a href="calendar-spreads.html#example"><i class="fa fa-check"></i><b>2.4</b> Example</a></li>
+<li class="chapter" data-level="2.5" data-path="calendar-spreads.html"><a href="calendar-spreads.html#different-calendar-spread-combinations"><i class="fa fa-check"></i><b>2.5</b> Different Calendar Spread Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="feature-importance.html"><a href="feature-importance.html"><i class="fa fa-check"></i><b>3</b> Feature Importance</a><ul>
+<li class="chapter" data-level="3.1" data-path="feature-importance.html"><a href="feature-importance.html#ml-model-performance"><i class="fa fa-check"></i><b>3.1</b> ML model performance</a></li>
+<li class="chapter" data-level="3.2" data-path="feature-importance.html"><a href="feature-importance.html#relevant-features"><i class="fa fa-check"></i><b>3.2</b> Relevant Features</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fingerprint-method.html"><a href="fingerprint-method.html"><i class="fa fa-check"></i><b>4</b> Fingerprint Method</a><ul>
+<li class="chapter" data-level="4.1" data-path="fingerprint-method.html"><a href="fingerprint-method.html#quick-overview-of-the-fingerprint-method"><i class="fa fa-check"></i><b>4.1</b> Quick Overview of the Fingerprint method</a></li>
+<li class="chapter" data-level="4.2" data-path="fingerprint-method.html"><a href="fingerprint-method.html#critical-values"><i class="fa fa-check"></i><b>4.2</b> Critical Values</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.polarstarfunds.com/" target="blank">Polar Star Funds</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Micro and Macro Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Micro and Macro Data</h1>
+<p class="author"><em>Mauritz van den Worm</em></p>
+<p class="date"><em>2020-09-29</em></p>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Section 1</span> Introduction</h1>
+<p>In this write-up we explore the role macro-economic data plays on the dynamics of calendar spreads. This is done by comparing the affects of macro- to micro-economic data on calendar spreads. The size of the effects are measured in two ways</p>
+<ul>
+<li>Feature Importance using
+<ul>
+<li>MDI - Mean Decrease Impurity</li>
+<li>MDA - Mean Decrease Accuracy</li>
+<li>SFI - Single Feature Importance</li>
+<li>CFI - Clustered Feature Importance</li>
+<li>SHAP - Shapley Feature Importance</li>
+<li>PCA - Principle Component Analysis</li>
+<li>For details on the above methods see <a href="https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos/dp/1119482089" target="_blank">Advances in Financial Machine Learning</a></li>
+</ul></li>
+<li>Fingerprint method of <a href="https://jfds.pm-research.com/content/early/2019/12/11/jfds.2019.1.023" target="_blank">Yimou Li, David Turkington and Alireza Yazdani</a></li>
+</ul>
+<p>The macro-economic features we consider are</p>
+<ul>
+<li>The mean price of the near dated WTI crude ontract during the previous month</li>
+<li>Dollar Index</li>
+<li>Rubble vs USD exachange rate</li>
+<li>Libor</li>
+</ul>
+<p>The micro-economic features we consider are made up of the stock-to-usage numbers of the commodities considered in</p>
+<ul>
+<li>Argentina</li>
+<li>Brazil</li>
+<li>China</li>
+<li>European Union</li>
+<li>Russia</li>
+<li>Ukraine</li>
+<li>United States</li>
+<li>World</li>
+<li>World without China</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="calendar-spreads.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["calendar-spreads-macro-data.pdf", "calendar-spreads-macro-data.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

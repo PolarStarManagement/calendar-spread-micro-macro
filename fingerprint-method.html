@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 4 Fingerprint Method | Micro and Macro Data</title>
+  <meta name="description" content="Section 4 Fingerprint Method | Micro and Macro Data" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 4 Fingerprint Method | Micro and Macro Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 4 Fingerprint Method | Micro and Macro Data" />
+  
+  
+  
+
+<meta name="author" content="Mauritz van den Worm" />
+
+
+<meta name="date" content="2020-09-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="feature-importance.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Micro and Macro Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="calendar-spreads.html"><a href="calendar-spreads.html"><i class="fa fa-check"></i><b>2</b> Calendar Spreads</a><ul>
+<li class="chapter" data-level="2.1" data-path="calendar-spreads.html"><a href="calendar-spreads.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="calendar-spreads.html"><a href="calendar-spreads.html#curve-shapes"><i class="fa fa-check"></i><b>2.2</b> Curve Shapes</a></li>
+<li class="chapter" data-level="2.3" data-path="calendar-spreads.html"><a href="calendar-spreads.html#notation"><i class="fa fa-check"></i><b>2.3</b> Notation</a></li>
+<li class="chapter" data-level="2.4" data-path="calendar-spreads.html"><a href="calendar-spreads.html#example"><i class="fa fa-check"></i><b>2.4</b> Example</a></li>
+<li class="chapter" data-level="2.5" data-path="calendar-spreads.html"><a href="calendar-spreads.html#different-calendar-spread-combinations"><i class="fa fa-check"></i><b>2.5</b> Different Calendar Spread Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="feature-importance.html"><a href="feature-importance.html"><i class="fa fa-check"></i><b>3</b> Feature Importance</a><ul>
+<li class="chapter" data-level="3.1" data-path="feature-importance.html"><a href="feature-importance.html#ml-model-performance"><i class="fa fa-check"></i><b>3.1</b> ML model performance</a></li>
+<li class="chapter" data-level="3.2" data-path="feature-importance.html"><a href="feature-importance.html#relevant-features"><i class="fa fa-check"></i><b>3.2</b> Relevant Features</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fingerprint-method.html"><a href="fingerprint-method.html"><i class="fa fa-check"></i><b>4</b> Fingerprint Method</a><ul>
+<li class="chapter" data-level="4.1" data-path="fingerprint-method.html"><a href="fingerprint-method.html#quick-overview-of-the-fingerprint-method"><i class="fa fa-check"></i><b>4.1</b> Quick Overview of the Fingerprint method</a></li>
+<li class="chapter" data-level="4.2" data-path="fingerprint-method.html"><a href="fingerprint-method.html#critical-values"><i class="fa fa-check"></i><b>4.2</b> Critical Values</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.polarstarfunds.com/" target="blank">Polar Star Funds</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Micro and Macro Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fingerprint-method" class="section level1">
+<h1><span class="header-section-number">Section 4</span> Fingerprint Method</h1>
+<div id="quick-overview-of-the-fingerprint-method" class="section level2">
+<h2><span class="header-section-number">4.1</span> Quick Overview of the Fingerprint method</h2>
+<p>This section is technical and quite mathematical, the interested reader is encouraged to follow, however the main purpose is to serve as a quick reminder of how the functions are constructed. Feel free to skip to the next section if you are not interested in the technical details. This section follows straight from <a href="https://jfds.pm-research.com/content/early/2019/12/11/jfds.2019.1.023" target="_blank">Li, Turkington and Yazdani</a>.</p>
+<p>Denote the model prediction function <span class="math inline">\(\hat{f}\)</span> we a trying to find as</p>
+<p><span class="math display">\[
+\hat{y} = \hat{f}(x_1, \dots, x_m)
+\]</span>
+In general the prediction function depends on the <span class="math inline">\(m\)</span> input parameters or features. The partial dependence function only depends on one of the features, <span class="math inline">\(x_k\)</span>. For a given value of <span class="math inline">\(x_k\)</span>, this partial dependence function returns the expected value of the prediction over all other possible values for the other predictors, which we denote as <span class="math inline">\(x_{\backslash k}\)</span>. The partial dependence function is then defined as</p>
+<p><span class="math display">\[
+\hat{y}_k = \hat{f}_k(x_k) = E[\hat{f}(x_1, \dots, x_{k-1}, x_{k+1}, \dots, x_m)] = \int \hat{f}(x_1, \dots, x_m) p(x_{\backslash k}) dx_{\backslash k}
+\]</span>
+where <span class="math inline">\(p(x_{\backslash k})\)</span> is the probability distribution over <span class="math inline">\(x_{\backslash k}\)</span>.</p>
+<p>In practice we follow the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Choose a value of the feature <span class="math inline">\(x_k\)</span>, say <span class="math inline">\(\alpha\)</span></li>
+<li>Combine this value with one of the actual input vectors for the remaining variables, <span class="math inline">\(x_{\backslash k}\)</span>, and generate a new prediction from the function: <span class="math inline">\(\hat{y} = \hat{f} (x_1, \dots, x_{k-1}, \alpha, x_{k+1}, \dots, x_m)\)</span>.</li>
+<li>Repeat step 2 with every input vector for <span class="math inline">\(x_{\backslash k}\)</span>, holding the value for <span class="math inline">\(x_k = \alpha\)</span> constant, and record all predictions.</li>
+<li>Average all the predictions for this value of <span class="math inline">\(x_k\)</span> to arrive at the value of the partial prediction at that point, <span class="math inline">\(y_{x_k}\)</span>.</li>
+<li>Repeat steps 1 through 4 for any desired values of <span class="math inline">\(x_k\)</span> and plot the resulting function.</li>
+</ol>
+<p>The partial dependence function will have small deviations if a given variable has little influence on the model’s predictions. Alternatively, if the variable is highly inf luential, we will observe large f luctuations in prediction based on changing the input values.</p>
+<p>Next, we decompose a variable’s marginal impact into a linear component and a nonlinear component by obtaining the best fit (least squares) regression line for the partial dependence function. We define the linear prediction effect, the predictive contribution of the linear component, as the mean absolute deviation of the linear predictions around their average value. Mathematically we write,</p>
+<p><span class="math display">\[\text{Linear Prediction Effect}(x_k) = \frac{1}{N} \sum^{N}_{i=1}\left| \hat{I}(x_{k,i}) - \frac{1}{N} \sum^{N}_{j=1} \hat{f}(x_{k,j}) \right|\]</span></p>
+<p>In the above equation, for a given predictor <span class="math inline">\(x_k\)</span>, the prediction <span class="math inline">\(\hat{I}(x_{k,i})\)</span> , results from the linear least square fit of its partial dependence function, and <span class="math inline">\(x_{k,i}\)</span> is the <span class="math inline">\(i\)</span>th value of <span class="math inline">\(x_k\)</span> in the dataset.</p>
+<p>Next, we define the nonlinear prediction effect, the predictive contribution of the nonlinear component, as the mean absolute deviation of the total marginal (single variable) effect around its corresponding linear effect. When this procedure is applied to an ordinary linear model, the nonlinear effects equal precisely zero, as they should. Mathematically we write,</p>
+<p><span class="math display">\[
+\text{Nonlinear Prediction Effect}(x_k) = \frac{1}{N} \sum^{N}_{i=1}\left| \hat{I}(x_{k,i}) -  \hat{f}(x_{k,i}) \right|
+\]</span></p>
+<p>A similar method can be applied to isolate the interaction effects attributable to pairs of variables <span class="math inline">\(x_k\)</span> and <span class="math inline">\(x_l\)</span>, simultaneously. The procedure for doing this is the same as given earlier, but in step 1 values for both variables are chosen jointly. The partial dependence function can then be written as</p>
+<p><span class="math display">\[
+\hat{y}_{k,l} = \hat{f}_{k,l}(x_k, x_l) = E[\hat{f}(x_k, x_{\backslash k}, x_l, x_{\backslash l})] = \int \hat{f}(x_1, \dots, x_m) p(x_{\backslash (k l)}) dx_{\backslash k}dx_{\backslash l}
+\]</span></p>
+<p>We define the pairwise interaction effect as the demeaned joint partial prediction of the two variables minus the demeaned partial predictions of each variable independently. When this procedure is applied to an ordinary linear model, the interaction effects equal precisely zero, as they should. Mathematically we write,</p>
+<p><span class="math display">\[
+\text{Pairwise Interaction Effect}(x_k, x_l) = \frac{1}{N^2} \sum^{N}_{i=1} \sum^{N}_{j=1} \left| \hat{f}(x_{k,i}, x_{l, j}) - \hat{f}(x_{k,i}) - \hat{f}(x_{l, j})\right|
+\]</span></p>
+</div>
+<div id="critical-values" class="section level2">
+<h2><span class="header-section-number">4.2</span> Critical Values</h2>
+<p>The fingerprint method is great for determining critical values of the most important feature in forecasting the value of a spread. Below we continue with the corn December-December example. Here we show the <em>fingerprints</em> for each of the features of the model. For each of the facets we keep the scale of the y-axis contant, this enables size comparison between the effects of the different features.</p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/zz_critical_plot-1.png" width="672" /></p>
+<p>From the above we can clearly see some elbows in the line plots, these are ranges of the specific features where we can expect to see to big changes in the values of the spreads. The <em>daysdiff</em> as an example, here we see a big decrease in the value of the spread when the feature value decreases below 150. It is interesting to note that at around 150 days before expiry of the front contract we are in the United States summer. This is the critical period for the corn market, if there is inclement weather here it will destroy the crop. However, most of the time after the weather stress period has passed the spread tends to collapse into a stronger contango. Other interesting critical values are found for single figure United States stock-to-usage numbers as well as global stock-to-usage numbers under 14%. In both of these cases we should see big backwaration moves.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="feature-importance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["calendar-spreads-macro-data.pdf", "calendar-spreads-macro-data.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

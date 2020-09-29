@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 3 Feature Importance | Micro and Macro Data</title>
+  <meta name="description" content="Section 3 Feature Importance | Micro and Macro Data" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 3 Feature Importance | Micro and Macro Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 3 Feature Importance | Micro and Macro Data" />
+  
+  
+  
+
+<meta name="author" content="Mauritz van den Worm" />
+
+
+<meta name="date" content="2020-09-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="calendar-spreads.html"/>
+<link rel="next" href="fingerprint-method.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Micro and Macro Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="calendar-spreads.html"><a href="calendar-spreads.html"><i class="fa fa-check"></i><b>2</b> Calendar Spreads</a><ul>
+<li class="chapter" data-level="2.1" data-path="calendar-spreads.html"><a href="calendar-spreads.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="calendar-spreads.html"><a href="calendar-spreads.html#curve-shapes"><i class="fa fa-check"></i><b>2.2</b> Curve Shapes</a></li>
+<li class="chapter" data-level="2.3" data-path="calendar-spreads.html"><a href="calendar-spreads.html#notation"><i class="fa fa-check"></i><b>2.3</b> Notation</a></li>
+<li class="chapter" data-level="2.4" data-path="calendar-spreads.html"><a href="calendar-spreads.html#example"><i class="fa fa-check"></i><b>2.4</b> Example</a></li>
+<li class="chapter" data-level="2.5" data-path="calendar-spreads.html"><a href="calendar-spreads.html#different-calendar-spread-combinations"><i class="fa fa-check"></i><b>2.5</b> Different Calendar Spread Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="feature-importance.html"><a href="feature-importance.html"><i class="fa fa-check"></i><b>3</b> Feature Importance</a><ul>
+<li class="chapter" data-level="3.1" data-path="feature-importance.html"><a href="feature-importance.html#ml-model-performance"><i class="fa fa-check"></i><b>3.1</b> ML model performance</a></li>
+<li class="chapter" data-level="3.2" data-path="feature-importance.html"><a href="feature-importance.html#relevant-features"><i class="fa fa-check"></i><b>3.2</b> Relevant Features</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fingerprint-method.html"><a href="fingerprint-method.html"><i class="fa fa-check"></i><b>4</b> Fingerprint Method</a><ul>
+<li class="chapter" data-level="4.1" data-path="fingerprint-method.html"><a href="fingerprint-method.html#quick-overview-of-the-fingerprint-method"><i class="fa fa-check"></i><b>4.1</b> Quick Overview of the Fingerprint method</a></li>
+<li class="chapter" data-level="4.2" data-path="fingerprint-method.html"><a href="fingerprint-method.html#critical-values"><i class="fa fa-check"></i><b>4.2</b> Critical Values</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.polarstarfunds.com/" target="blank">Polar Star Funds</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Micro and Macro Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="feature-importance" class="section level1">
+<h1><span class="header-section-number">Section 3</span> Feature Importance</h1>
+<p>The study of feature importance is important in the modeling process and helps to find those features that have the greatest influence in predicting the chosen observable. In practice we make use of a collection of different feature importance techniques</p>
+<ul>
+<li>MDI - Mean Decrease Impurity</li>
+<li>MDA - Mean Decrease Accuracy</li>
+<li>SFI - Single Feature Importance</li>
+<li>CFI - Clustered Feature Importance</li>
+<li>SHAP - Shapley Feature Importance</li>
+<li>PCA - Principle Component Analysis</li>
+</ul>
+<p>To find the technique that overlaps with most with what we expect to see from a PCA we make use of the weighted tau technique.</p>
+<div id="ml-model-performance" class="section level2">
+<h2><span class="header-section-number">3.1</span> ML model performance</h2>
+<p>In order to apply the methods outlined above we need to apply some machine learning techniques. Specifically, we apply two linear</p>
+<ul>
+<li>Multi-variate linear regression</li>
+<li>Multi-variate lasso regression</li>
+</ul>
+<p>and one non-linear algorithm</p>
+<ul>
+<li>Random Forest</li>
+</ul>
+<p>The reason for apply these methods is twofold. The complicated relationships between different features in the context of financial problems does not have to be of a linear nature as is assumed in the majority of econometric literature. The second is that interaction effects between different features have historically been ignored.</p>
+<p>Keeping with the Corn December-December data of before we show in the table below the model results of the three methods. The value is each of the cells is R-squared, the greater the number the better. We show the results of the model fit, i.e. the in sample results, and also the model fit on data left out of the training sample. The out of sample results for the Random Forest model is considerably better than the two linear models.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Model
+</th>
+<th style="text-align:right;">
+In Sample Score
+</th>
+<th style="text-align:right;">
+Out of Sample Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.914
+</td>
+<td style="text-align:right;">
+0.714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Linear Regression
+</td>
+<td style="text-align:right;">
+0.464
+</td>
+<td style="text-align:right;">
+0.278
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lasso Regression
+</td>
+<td style="text-align:right;">
+0.460
+</td>
+<td style="text-align:right;">
+0.292
+</td>
+</tr>
+</tbody>
+</table>
+<p>The table below shows the best out of sample performance for each of the different calendar spread combinations. It is only in the case of the UU calendar spread that the lasso model outperformed the Random Forest model.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Calendar Reference
+</th>
+<th style="text-align:left;">
+Model
+</th>
+<th style="text-align:right;">
+In Sample Score
+</th>
+<th style="text-align:right;">
+Out of Sample Score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+HH
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.871
+</td>
+<td style="text-align:right;">
+0.546
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HK
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.866
+</td>
+<td style="text-align:right;">
+0.590
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HN
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.878
+</td>
+<td style="text-align:right;">
+0.580
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HU
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.937
+</td>
+<td style="text-align:right;">
+0.751
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HZ
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.947
+</td>
+<td style="text-align:right;">
+0.737
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KH
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.967
+</td>
+<td style="text-align:right;">
+0.836
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KK
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.958
+</td>
+<td style="text-align:right;">
+0.866
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KN
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.931
+</td>
+<td style="text-align:right;">
+0.448
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KU
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.965
+</td>
+<td style="text-align:right;">
+0.817
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KZ
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.969
+</td>
+<td style="text-align:right;">
+0.840
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NH
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.973
+</td>
+<td style="text-align:right;">
+0.964
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NK
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.967
+</td>
+<td style="text-align:right;">
+0.936
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NN
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.965
+</td>
+<td style="text-align:right;">
+0.958
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NU
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.970
+</td>
+<td style="text-align:right;">
+0.879
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NZ
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.968
+</td>
+<td style="text-align:right;">
+0.965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UH
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.986
+</td>
+<td style="text-align:right;">
+0.786
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UK
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.984
+</td>
+<td style="text-align:right;">
+0.751
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UN
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.981
+</td>
+<td style="text-align:right;">
+0.733
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UU
+</td>
+<td style="text-align:left;">
+Lasso Regression
+</td>
+<td style="text-align:right;">
+0.799
+</td>
+<td style="text-align:right;">
+0.656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UZ
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.989
+</td>
+<td style="text-align:right;">
+0.813
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZH
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.784
+</td>
+<td style="text-align:right;">
+0.399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZK
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.883
+</td>
+<td style="text-align:right;">
+0.471
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZN
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.841
+</td>
+<td style="text-align:right;">
+0.433
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZU
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.891
+</td>
+<td style="text-align:right;">
+0.477
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ZZ
+</td>
+<td style="text-align:left;">
+Random Forest
+</td>
+<td style="text-align:right;">
+0.914
+</td>
+<td style="text-align:right;">
+0.714
+</td>
+</tr>
+</tbody>
+</table>
+<p>In the following we study the main contributing features of the best models shown in the table above.</p>
+</div>
+<div id="relevant-features" class="section level2">
+<h2><span class="header-section-number">3.2</span> Relevant Features</h2>
+<p>The plot below continues with the Corn December-December spread and shows the feature importance results in a bar chart. The y-axis labels the different features and the x-axis shows the value of feature importance. Here we can see that the <em>daysdiff</em> feature, measuring the number of days until the expiry of the front dated contract plays a large role in the model performance. This might signify that the spread has strong seasonal behaviour, which we can confirm from the earlier plot showing the stacked calendar spread evolution. Other than the strong seasonality we can see that the value of the Rubble also plays a stong role. The value of crude oil and the libor rate doesn’t seem to be predictive.</p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/zz_fi_plot-1.png" width="672" /></p>
+<p>The plot below is similar to the one above, but this time we show the feature importance results for the Corn July-December spread, which was the best out of sample performing model. Here there seems to be much less of a seasonal behaviour compared to the December-December spread. Macro factors that influes this spread include the Dollar Index as well as the price of crude oil.</p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/nz_fi_plot-1.png" width="672" /></p>
+<p>The table below aggregates the ranks of each of the features for every corn calendar spread. The smaller the number the more importance it carries in determining the future value of the spread.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+feature
+</th>
+<th style="text-align:right;">
+rank
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+worldnochina
+</td>
+<td style="text-align:right;">
+1.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+daysdiff
+</td>
+<td style="text-align:right;">
+3.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+unitedstates
+</td>
+<td style="text-align:right;">
+3.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+world
+</td>
+<td style="text-align:right;">
+4.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rubble
+</td>
+<td style="text-align:right;">
+5.24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ukraine
+</td>
+<td style="text-align:right;">
+5.68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+crude
+</td>
+<td style="text-align:right;">
+6.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dollarindex
+</td>
+<td style="text-align:right;">
+6.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+libor
+</td>
+<td style="text-align:right;">
+6.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+<td style="text-align:right;">
+7.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+brazil
+</td>
+<td style="text-align:right;">
+7.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+argentina
+</td>
+<td style="text-align:right;">
+7.80
+</td>
+</tr>
+</tbody>
+</table>
+<p>The table above shows that global corn stock-to-usage numbers without taking China into account seems to have the best predictive power followed by the days to expiry of the front month contract and United States corn stock-to-usage numbers. Here the value of the Dollar and the Libor rate seem to play more of a back seat role.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="calendar-spreads.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fingerprint-method.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["calendar-spreads-macro-data.pdf", "calendar-spreads-macro-data.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

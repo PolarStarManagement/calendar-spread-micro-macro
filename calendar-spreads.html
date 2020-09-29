@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 2 Calendar Spreads | Micro and Macro Data</title>
+  <meta name="description" content="Section 2 Calendar Spreads | Micro and Macro Data" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 2 Calendar Spreads | Micro and Macro Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 2 Calendar Spreads | Micro and Macro Data" />
+  
+  
+  
+
+<meta name="author" content="Mauritz van den Worm" />
+
+
+<meta name="date" content="2020-09-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="feature-importance.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Micro and Macro Data</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="calendar-spreads.html"><a href="calendar-spreads.html"><i class="fa fa-check"></i><b>2</b> Calendar Spreads</a><ul>
+<li class="chapter" data-level="2.1" data-path="calendar-spreads.html"><a href="calendar-spreads.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="calendar-spreads.html"><a href="calendar-spreads.html#curve-shapes"><i class="fa fa-check"></i><b>2.2</b> Curve Shapes</a></li>
+<li class="chapter" data-level="2.3" data-path="calendar-spreads.html"><a href="calendar-spreads.html#notation"><i class="fa fa-check"></i><b>2.3</b> Notation</a></li>
+<li class="chapter" data-level="2.4" data-path="calendar-spreads.html"><a href="calendar-spreads.html#example"><i class="fa fa-check"></i><b>2.4</b> Example</a></li>
+<li class="chapter" data-level="2.5" data-path="calendar-spreads.html"><a href="calendar-spreads.html#different-calendar-spread-combinations"><i class="fa fa-check"></i><b>2.5</b> Different Calendar Spread Combinations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="feature-importance.html"><a href="feature-importance.html"><i class="fa fa-check"></i><b>3</b> Feature Importance</a><ul>
+<li class="chapter" data-level="3.1" data-path="feature-importance.html"><a href="feature-importance.html#ml-model-performance"><i class="fa fa-check"></i><b>3.1</b> ML model performance</a></li>
+<li class="chapter" data-level="3.2" data-path="feature-importance.html"><a href="feature-importance.html#relevant-features"><i class="fa fa-check"></i><b>3.2</b> Relevant Features</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fingerprint-method.html"><a href="fingerprint-method.html"><i class="fa fa-check"></i><b>4</b> Fingerprint Method</a><ul>
+<li class="chapter" data-level="4.1" data-path="fingerprint-method.html"><a href="fingerprint-method.html#quick-overview-of-the-fingerprint-method"><i class="fa fa-check"></i><b>4.1</b> Quick Overview of the Fingerprint method</a></li>
+<li class="chapter" data-level="4.2" data-path="fingerprint-method.html"><a href="fingerprint-method.html#critical-values"><i class="fa fa-check"></i><b>4.2</b> Critical Values</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.polarstarfunds.com/" target="blank">Polar Star Funds</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Micro and Macro Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="calendar-spreads" class="section level1">
+<h1><span class="header-section-number">Section 2</span> Calendar Spreads</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<p>One of our main flavours of relative value commodity alpha we like to harvest is to express our views using calendar spreads. This is where we take opposing views on different parts of the futures curve of a single commodity. This can be done in two ways</p>
+<ul>
+<li>Bull spreads: long the near dated and short the far dated contract</li>
+<li>Bear Spreads : long the far dated and short the near dated</li>
+</ul>
+</div>
+<div id="curve-shapes" class="section level2">
+<h2><span class="header-section-number">2.2</span> Curve Shapes</h2>
+<p>There are two basic futures curve shapes</p>
+<ul>
+<li><p>Contango
+When the near dated contracts are trading at a discount compared to the far dated contracts</p></li>
+<li><p>Backwardation
+When the near dated contracts are trading at a premium compared to the far dated contracts</p></li>
+</ul>
+<p>In the plots below we show example of what each case look like. On the y-axis we show the price of each of the contracts. The x-axis shows the expiration dates associated with each of the contracts. The codes at each point represent the standard market codes for the different maturities.</p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/contango_plot-1.png" width="672" /></p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/backwardation_plot-1.png" width="672" /></p>
+<p>Commodity futures curves are divided by obstacles to intertemporal arbitrage. The costlier the storage, the greater is the division and the variability of calendar spread moves. The segmented commodity futures curve is shaped by four factors:</p>
+<ul>
+<li>Funding and storage costs,</li>
+<li>Expected supply and demand imbalanced,</li>
+<li>Convenience yields and</li>
+<li>Hedging pressure.</li>
+</ul>
+<p>Under normal conditions commodity producers take short futures positions in the deferred parts fo the commodity futures curve in order to hedge against price drops. The investor or speculator that offers this insurance is paid a premium and takes a long position in the futures contract. This positive premium comes in the form of the carry premium. On the other hand, commodity consumers take long futures positions in nearer dated contracts in order to hedge against unexpected future price surges. The investor or speculator that offers this insurance receives a premium for taking up the risk and takes a short position, in which case contango arises.</p>
+<p>When commodity stocks are in abundance the funding and storage costs can become high which forces the futures curve more contango. There is a maximum degree of contango the futures curve can have, given by full carry. The level of full carry depends on interest rates. For this reason we include Libor rates as part of our macro-economic indicators.</p>
+</div>
+<div id="notation" class="section level2">
+<h2><span class="header-section-number">2.3</span> Notation</h2>
+<p>We define the value of a calendar spread as</p>
+<p><span class="math display">\[
+S_{ij} = P_i - P_j, \text{with } j &gt; i.
+\]</span>
+Here <span class="math inline">\(P_i\)</span> and <span class="math inline">\(P_j\)</span> represent the prices of contracts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> respectively. Moreover, contract <span class="math inline">\(j\)</span> expires after contract <span class="math inline">\(i\)</span>. In words, calendar spreads are calculated as the difference between the near and far dated futures contracts. A negative spread implies the near dated contract is trading at a discount compared to the far dated contract, i.e. contango. Similarly, a positive spread implies that the near dated contract is trading at a premium with respect to the far dated contract, i.e. backwardation.</p>
+</div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">2.4</span> Example</h2>
+<p>Below we consider an example of the Corn ZZ, or December-December calendar spread. On the y-axis we show the value of the spread and on the x-axis the stacked date. Note that the actual values of the years make no difference here. The point is to visualise the seasonal pattern that emerges.</p>
+<p><img src="calendar-spreads-macro-data_files/figure-html/stacked_calendar_plot-1.png" width="672" /></p>
+<p>We highlight three years. The first is 2012, here shown in red. This year saw a massive drought in the United States which destroyed the production and forced the curve into a severe backwardation. The green curve shows how the spread evolved during 2019 and the blue curve represents the current spread. The solid black line represents the monthly median while the shaded region shows the 25th to 75th percentile. Half of the historical data lies within the shaded region. The horizontal dashed line is there to help distinguish between backwardation (<span class="math inline">\(S &gt; 0\)</span>) and contango (<span class="math inline">\(S &lt; 0\)</span>).</p>
+</div>
+<div id="different-calendar-spread-combinations" class="section level2">
+<h2><span class="header-section-number">2.5</span> Different Calendar Spread Combinations</h2>
+<p>The Corn futures market has five different codes within each year</p>
+<ul>
+<li>H</li>
+<li>K</li>
+<li>N</li>
+<li>U</li>
+<li>Z</li>
+</ul>
+<p>This implies that that are 25 different calendar spread combinations we can create using only the corn futures market. The table below shows all the different calendar combinations we can create.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+H
+</th>
+<th style="text-align:left;">
+K
+</th>
+<th style="text-align:left;">
+N
+</th>
+<th style="text-align:left;">
+U
+</th>
+<th style="text-align:left;">
+Z
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+HH
+</td>
+<td style="text-align:left;">
+HK
+</td>
+<td style="text-align:left;">
+HN
+</td>
+<td style="text-align:left;">
+HU
+</td>
+<td style="text-align:left;">
+HZ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+K
+</td>
+<td style="text-align:left;">
+KH
+</td>
+<td style="text-align:left;">
+KK
+</td>
+<td style="text-align:left;">
+KN
+</td>
+<td style="text-align:left;">
+KU
+</td>
+<td style="text-align:left;">
+KZ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+NH
+</td>
+<td style="text-align:left;">
+NK
+</td>
+<td style="text-align:left;">
+NN
+</td>
+<td style="text-align:left;">
+NU
+</td>
+<td style="text-align:left;">
+NZ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+UH
+</td>
+<td style="text-align:left;">
+UK
+</td>
+<td style="text-align:left;">
+UN
+</td>
+<td style="text-align:left;">
+UU
+</td>
+<td style="text-align:left;">
+UZ
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Z
+</td>
+<td style="text-align:left;">
+ZH
+</td>
+<td style="text-align:left;">
+ZK
+</td>
+<td style="text-align:left;">
+ZN
+</td>
+<td style="text-align:left;">
+ZU
+</td>
+<td style="text-align:left;">
+ZZ
+</td>
+</tr>
+</tbody>
+</table>
+<p>The table above highlights the extent of the different instruments available to trade when we want to express a view on Corn. The same applies to all the other commodities we cover.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="feature-importance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["calendar-spreads-macro-data.pdf", "calendar-spreads-macro-data.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
